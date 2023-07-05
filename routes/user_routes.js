@@ -18,6 +18,26 @@ router.get("/login",(req,res)=>{
 router.get("/signup",(req,res)=>{
     res.sendFile(path.join(__dirname,"..","views","Sign_up.html"))
 })
+/*router.post("/change_pass",(req,res)=>{
+    async function change_password(){
+        try{
+            const {Email,Password}=req.body;
+            const result=await userschema.updateOne({$set:{"Email":{$eq:Email}},{"Password":{$eq:Password}}})
+            if(!(result==null)){
+                res.json({success:true})
+                return
+            }
+            else{
+                res.json({sucess:false})
+                return
+            }
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+    change_password();
+})*/
 router.post("/signup_auth",(req,res)=>{
     async function add_details(){
         try{
