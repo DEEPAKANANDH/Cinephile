@@ -15,6 +15,9 @@ router.get("/home",(req,res)=>{
 router.get("/login",(req,res)=>{
     res.sendFile(path.join(__dirname,"..","views","Sign_in.html"))
 })
+router.get('/signup',(req,res)=>{
+    res.sendFile(path.join(__dirname,"..","views","Sign_up.html"))
+})
 router.post('/signup_auth',(req,res)=>{
     async function add_details(){
         try{
@@ -31,6 +34,7 @@ router.post('/signup_auth',(req,res)=>{
             else{
                 await userschema.insertMany(req.body);
                 res.json({message:true})
+                return
             }
         }
         catch(err){
@@ -47,9 +51,11 @@ router.post('/login_auth',(req,res)=>{
             const result=await userschema.findOne({$and:[{"Email":{$eq:Email}},{"Password":{$eq:Password}}]})
             if(!(result==null)){
                 res.json({success:true})
+                return
             }
             else{
                 res.json({sucess:false})
+                return
             }
         }
         catch(err){
