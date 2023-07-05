@@ -10,10 +10,12 @@ const login_authentication=async (e)=>{
     try{
         const login=await axios.post("https://movie-cinephile-latest.onrender.com/auth/login_auth",{Email:email.value,Password:password.value})
         if(login.data.success){
+            tick.setAttribute('src','../movie_home_images/green_tick.png')
             document.getElementById('error_msg').style.color="green"
             document.getElementById('error_msg').innerText="Successfully Logged in"
             window.location.href="/auth/home"
         }else{
+            tick.setAttribute('src','../movie_home_images/wrong_icon.jpg')
             document.getElementById('error_msg').style.color="red"
             document.getElementById('error_msg').innerText="Invalid username passsword"
         }
