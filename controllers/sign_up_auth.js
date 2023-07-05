@@ -10,7 +10,7 @@ const confirm_password=document.getElementById('pwd2')
 const signup_authentication=async (e)=>{
     e.preventDefault()
     try{
-        const signin=await axios.post("https://movie-cinephile-latest.onrender.com/Sign_up.html",{Username:username.value,Email:email.value,Password:password.value,Confirm_password:confirm_password.value})
+        const signin=await axios.post("https://movie-cinephile-latest.onrender.com/auth/signup_auth",{Username:username.value,Email:email.value,Password:password.value,Confirm_password:confirm_password.value})
         if(signin.data.message=="exists"){
             document.getElementById('error_msg').style.color="red"
             document.getElementById('error_msg').innerText="User Aldready exists"

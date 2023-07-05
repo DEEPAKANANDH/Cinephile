@@ -8,7 +8,7 @@ const password=document.getElementById("pwd")
 const login_authentication=async (e)=>{
     e.preventDefault()
     try{
-        const login=await axios.post("http://localhost:3000/auth/login_auth",{Email:email.value,Password:password.value})
+        const login=await axios.post("https://movie-cinephile-latest.onrender.com/auth/login_auth",{Email:email.value,Password:password.value})
         if(login.data.success){
             document.getElementById('error_msg').style.color="green"
             document.getElementById('error_msg').innerText="Successfully Logged in"
