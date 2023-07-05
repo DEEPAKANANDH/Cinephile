@@ -15,10 +15,10 @@ router.get("/home",(req,res)=>{
 router.get("/login",(req,res)=>{
     res.sendFile(path.join(__dirname,"..","views","Sign_in.html"))
 })
-router.get('/signup',(req,res)=>{
+router.get("/signup",(req,res)=>{
     res.sendFile(path.join(__dirname,"..","views","Sign_up.html"))
 })
-router.post('/signup_auth',(req,res)=>{
+router.post("/signup_auth",(req,res)=>{
     async function add_details(){
         try{
             const {Username,Email,Password,Confirm_password}=req.body;
