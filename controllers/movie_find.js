@@ -4,7 +4,7 @@ const {Title}=Qs.parse(window.location.search,{
 
 const start=async ()=>{
     
-        const res=await axios.post("http://localhost:3000/api/imdb/find",{Title})
+        const res=await axios.post("https://movie-cinephile-latest.onrender.com/api/imdb/find",{Title})
         console.log(res)
         document.getElementById("title").innerHTML=res.data[0].name;
         //document.getElementById("typing").innerHTML=res.data[0].name;
